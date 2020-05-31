@@ -1,0 +1,14 @@
+// triads
+
+var triad1 = {c e g}  // C, tonic --> *
+var triad2 = {d f a}  // Dm, subdominant --> dominant/tonic
+var triad3 = {_b e g} // Em, tonic -x-> C
+var triad4 = {c f a}  // F, subdominant --> dominant/tonic
+var triad5 = {_b d g} // G, dominant --> tonic
+var triad6 = {c e a}  // Am, tonic -x-> C
+
+// counter
+
+var amelo_c = 0
+var bmelo_c = 0
+var sabi_c = 0

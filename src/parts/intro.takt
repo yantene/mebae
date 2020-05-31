@@ -1,0 +1,40 @@
+// C -> Em -> F -> G -> C -> Em -> F -> G
+
+var chord = {
+  triad1 triad3 triad4 triad2
+  triad1 triad3 triad4 triad2
+}
+
+[
+  percussion: {
+    [
+      {
+        [
+          {c2 r}\ @ 4     // bass drum
+          {r r d2 r}\ @ 2 // snare
+          f#2\ @ 8        // closed hi-hat
+        ] @ 4
+        [
+          {c2 r}\ @ 4     // bass drum
+          {r r d2 r}\ @ 2 // snare
+          f#2\ @ 8        // closed hi-hat
+          r\ @ 7 c#3\     // cymbal
+        ] @ 4
+      }
+    ]
+  }
+
+  piano_lh: {
+    chord @ {[$1 $2 $3]. $2\ $3\ $2\ $1}
+  }
+
+  piano_rh: {
+    r** @ 7
+    r* _{g g a b}\
+  }
+
+  bass: {
+    ^c** e** f** g**
+    {^c e f g} | AddNotes(n+=12) @ {^{$1 $2} @ 4}\
+  }
+]

@@ -1,0 +1,40 @@
+// Am -> F -> G -> C -> A -> F -> G -> G
+
+bmelo_c += 1
+
+var chord = {
+  triad6 triad4 triad5 triad1
+  triad6 triad4 triad5 triad5
+}
+
+[
+  vocal: {
+    c* d c _b**
+    _a* _g _f _g**
+    c* d c _b*. _e\ _g\
+    _a**.
+  }
+
+  percussion: {
+    [
+      {
+        [
+          {c2 r}\ @ 4     // bass drum
+          f#2\ @ 8        // closed hi-hat
+        ] @ 8
+      }
+    ]
+  }
+
+  piano_lh: {
+    chord @ {[$1 $2 $3]**}
+  }
+
+  //piano_rh: {
+  //  chord @ {$1 $3 $1 $3}
+  //}
+
+  bass: {
+    {a f g c a f g g} | AddNotes(n+=12) @ {^{$1 $2} @ 4}\
+  }
+]

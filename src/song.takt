@@ -1,10 +1,16 @@
-tempo(120)
+include "variables"
+include "meta"
 
-ch = 10
-repeat(32) {
-  [
-    {c2 r}\ @ 2
-    {r r d2 r}\
-    f#2\ @ 4
-  ]
+{
+  include "parts/intro"     // C -> G
+  include "parts/amelo"     // C -> G
+  include "parts/bmelo"     // Am -> G
+  include "parts/sabi"      // C -> G
+  include "parts/amelo"     // C -> G
+  include "parts/bmelo"     // Am -> G
+  include "parts/sabi"      // C -> G
+  include "parts/cmelo"     // C -> G
+  include "parts/sabi"      // C -> G (ochi-sabi)
+  include "parts/sabi"      // C -> G
+  include "parts/outro"     // C -> G -> C
 }

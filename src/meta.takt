@@ -1,0 +1,34 @@
+// tracks
+
+newtrack(percussion) {
+  ch = 10
+  v = 70
+}
+
+newtrack(piano_rh) {
+  ch = 1
+  prog(1) // Acoustic Grand Piano
+  v = 60
+  ^
+}
+
+newtrack(piano_lh) {
+  ch = 2
+  prog(1) // Acoustic Grand Piano
+  v = 60
+  _
+}
+
+newtrack(bass) {
+  ch = 3
+  o = 1
+  v = 60
+  prog(38) // Slap Bass 2
+}
+
+newtrack(vocal) {
+  ch = 4
+  prog(53) // Voice
+}
+
+tempo(120)
