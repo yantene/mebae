@@ -4,6 +4,13 @@ Social Composing with Takt!
 
 ## How to generate flac
 
+## Arch Linux
+
+```
+yay -S make takt fluidsynth soundfont-fluid
+make
+```
+
 ## Docker 
 
 ```
