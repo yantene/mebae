@@ -20,11 +20,25 @@ RUN \
   make install && \
   rm -rf ${tmpdir}
 
-RUN apt install -y fluidsynth fluid-soundfont-gm
+RUN apt install -y fluidsynth fluid-soundfont-gm sudo
 
 RUN \
   apt autoremove -y curl gcc g++ file flex && \
   apt clean && \
   rm -rf /var/lib/apt/lists/*
 
-ENTRYPOINT /usr/bin/make SOUND_FONT=/usr/share/sounds/sf2/FluidR3_GM.sf2
+RUN { \
+    echo '#!/bin/bash'; \
+    echo 'if test ! -v LOCAL_UID -o ! -v LOCAL_GID; then'; \
+    echo '  echo "Please specify \$LOCAL_UID and \$LOCAL_GID!" 2>&1'; \
+    echo '  exit -1'; \
+    echo 'fi'; \
+    echo 'useradd -u ${LOCAL_UID} -o -m user'; \
+    echo 'groupmod -g ${LOCAL_GID} user'; \
+    echo 'export HOME=/home/user'; \
+    echo 'exec sudo -u user /usr/bin/make SOUND_FONT=/usr/share/sounds/sf2/FluidR3_GM.sf2'; \
+  } > /root/entrypoint.sh && \
+  echo 'Set disable_coredump false' >> /etc/sudo.conf && \
+  chmod +x /root/entrypoint.sh
+
+ENTRYPOINT ["/root/entrypoint.sh"]
