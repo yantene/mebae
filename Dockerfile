@@ -12,7 +12,7 @@ RUN \
 RUN \
   tmpdir=`mktemp -d` && \
   cd ${tmpdir} && \
-  curl -L -O 'https://excellmedia.dl.sourceforge.net/project/takt/takt-0.310-src.tar.gz' && \
+  curl -L -O 'https://downloads.sourceforge.net/project/takt/takt-0.310-src.tar.gz' && \
   tar xf takt-0.310-src.tar.gz && \
   cd takt-0.310 && \
   ./configure && \
