@@ -12,7 +12,7 @@ RUN \
 RUN \
   tmpdir=`mktemp -d` && \
   cd ${tmpdir} && \
-  curl -L -O 'https://excellmedia.dl.sourceforge.net/project/takt/takt-0.310-src.tar.gz' && \
+  curl -L -O 'https://downloads.sourceforge.net/project/takt/takt-0.310-src.tar.gz' && \
   tar xf takt-0.310-src.tar.gz && \
   cd takt-0.310 && \
   ./configure && \
@@ -20,7 +20,7 @@ RUN \
   make install && \
   rm -rf ${tmpdir}
 
-RUN apt install -y fluidsynth fluid-soundfont-gm sudo
+RUN apt install -y fluidsynth fluid-soundfont-gm sudo flac opus-tools lame
 
 RUN \
   apt autoremove -y curl gcc g++ file flex && \
@@ -36,7 +36,7 @@ RUN { \
     echo 'useradd -u ${LOCAL_UID} -o -m user'; \
     echo 'groupmod -g ${LOCAL_GID} user'; \
     echo 'export HOME=/home/user'; \
-    echo 'exec sudo -u user /usr/bin/make SOUND_FONT=/usr/share/sounds/sf2/FluidR3_GM.sf2'; \
+    echo 'sudo -u user /usr/bin/make "$@" SOUND_FONT=/usr/share/sounds/sf2/FluidR3_GM.sf2'; \
   } > /root/entrypoint.sh && \
   echo 'Set disable_coredump false' >> /etc/sudo.conf && \
   chmod +x /root/entrypoint.sh
