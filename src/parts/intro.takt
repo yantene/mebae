@@ -1,0 +1,31 @@
+// 8 measures: C -> Em -> F -> G x 4
+
+def intro() {
+  var chord = {triad1 triad3 triad4 triad2} @ 2
+
+  [
+    percussion: {
+      for (i, 1, 8) {
+        [
+          {bas r}\ @ 4
+          {r r snr r if (i == 8) {r snr snr snr} else {r r snr r}}\
+          {if (i == 5) { ccm } else { chh } chh ohh chh @ 5}\
+        ]
+      }
+    }
+
+    piano_lh: {
+      chord @ {[$1 $2 $3]. $2\ $3\ $2\ $1}
+    }
+
+    piano_rh: {
+      r** @ 7
+      r* _{g g a b}\
+    }
+
+    bass: {
+      ^c** e** f** g**
+      {^c e f g} | AddNotes(n+=12) @ {^{$1 $2} @ 4}\
+    }
+  ]
+}

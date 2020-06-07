@@ -1,0 +1,49 @@
+// tracks
+
+newtrack(percussion) {
+  ch = 10
+  v = 70
+}
+
+newtrack(piano_rh) {
+  ch = 1
+  prog(1) // Acoustic Grand Piano
+  pan(96)
+  v = 60
+  ^
+}
+
+newtrack(piano_lh) {
+  ch = 2
+  prog(1) // Acoustic Grand Piano
+  pan(96)
+  v = 60
+  _
+}
+
+newtrack(bass) {
+  ch = 3
+  o = 1
+  v = 60
+  prog(38) // Slap Bass 2
+  pan(32)
+}
+
+newtrack(vocal) {
+  ch = 4
+  prog(53) // Voice
+}
+
+// aliases
+
+var bas = {c2}  // bass drum (b1, c2)
+var snr = {d2}  // snare drum (d2, e2)
+var ohh = {a#2} // open hi-hat
+var chh = {f#2} // closed hi-hat
+var ccm = {c#3} // crash cymbal (c#3, a3)
+var rcm = {d#3} // ride cymbal (d#3, b3)
+var htm = {d3}  // high tom
+var mtm = {b2}  // mid tom (b2, c3)
+var ftm = {g2}  // floor tom (g2, f2)
+
+tempo(144)

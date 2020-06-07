@@ -1,0 +1,42 @@
+// 16 measures: C -> Em -> F -> G x 4
+
+def amelo() {
+  var chord = {triad1 triad3 triad4 triad2} @ 4
+
+  [
+    percussion: {
+      for (i, 1, 16) {
+        [
+          {bas r}\ @ 4
+          {r r snr r if (i == 8 || i == 16) {r snr snr snr} else {r r snr r}}\
+          {if (i == 1) { ccm } else { chh } chh ohh chh @ 5}\
+        ]
+      }
+    }
+
+    vocal: {
+      for (i, 0, 1) {
+        e* d c _b c d e
+        f f e c d*. e\ f\
+        g* f e d* c _a
+        if (i == 0) {
+          _a _a f e d**
+        } else {
+          e* d c c. d\\ c\\ _b.
+        }
+      }
+    }
+
+    piano_lh: {
+      chord @ {[$1 $2 $3]. $2\ $3\ $2\ $1}
+    }
+
+    piano_rh: {
+      chord @ {$1 $3 $1 $3}
+    }
+
+    bass: {
+      {^c e f g} @ 4 | AddNotes(n+=12) @ {^{$1 $2} @ 4}\
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+include "parts/intro"
+include "parts/amelo"
+include "parts/bmelo"
+include "parts/sabi"
+include "parts/outro"
