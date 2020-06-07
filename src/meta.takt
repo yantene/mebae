@@ -8,6 +8,7 @@ newtrack(percussion) {
 newtrack(piano_rh) {
   ch = 1
   prog(1) // Acoustic Grand Piano
+  pan(96)
   v = 60
   ^
 }
@@ -15,6 +16,7 @@ newtrack(piano_rh) {
 newtrack(piano_lh) {
   ch = 2
   prog(1) // Acoustic Grand Piano
+  pan(96)
   v = 60
   _
 }
@@ -24,6 +26,7 @@ newtrack(bass) {
   o = 1
   v = 60
   prog(38) // Slap Bass 2
+  pan(32)
 }
 
 newtrack(vocal) {
