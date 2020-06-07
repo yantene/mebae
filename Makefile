@@ -1,7 +1,7 @@
 SOUND_FONT := /usr/share/soundfonts/FluidR3_GM.sf2
 DEVICE_NUMBER := 1
 
-MP3_BITRATE := 320
+MP3_BITRATE := 192
 
 .DEFAULT_GOAL := all
 
