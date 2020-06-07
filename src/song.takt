@@ -1,16 +1,18 @@
 include "variables"
 include "meta"
+include "parts"
 
-{
-  include "parts/intro"     // C -> G
-  include "parts/amelo"     // C -> G
-  include "parts/bmelo"     // Am -> G
-  include "parts/sabi"      // C -> G
-  include "parts/amelo"     // C -> G
-  include "parts/bmelo"     // Am -> G
-  include "parts/sabi"      // C -> G
-  include "parts/cmelo"     // C -> G
-  include "parts/sabi"      // C -> G (ochi-sabi)
-  include "parts/sabi"      // C -> G
-  include "parts/outro"     // C -> G -> C
-}
+intro()
+
+amelo()
+bmelo()
+sabi()
+
+amelo()
+bmelo()
+sabi()
+
+sabi(true) // ochi-sabi
+sabi(false, true) // last-sabi
+
+outro()

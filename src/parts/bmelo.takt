@@ -1,35 +1,35 @@
 // 8 measures: Am -> F -> G -> C -> A -> F -> G -> G
 
-bmelo_c += 1
+def bmelo() {
+  var chord = {
+    triad6 triad4 triad5 triad1
+    triad6 triad4 triad5 triad5
+  }
 
-var chord = {
-  triad6 triad4 triad5 triad1
-  triad6 triad4 triad5 triad5
-}
-
-[
-  percussion: {
-    for (i, 1, 8) {
-      [
-        {bas r}\ @ 4
-        chh\ @ 8
-      ]
+  [
+    percussion: {
+      for (i, 1, 8) {
+        [
+          {bas r}\ @ 4
+          chh\ @ 8
+        ]
+      }
     }
-  }
 
-  vocal: {
-    c* d c _b**
-    _a* _g _f _g**
-    c* d c _b*. _e\ _g\
-    _a**.
-  }
+    vocal: {
+      c* d c _b**
+      _a* _g _f _g**
+      c* d c _b*. _e\ _g\
+      _a**.
+    }
 
-  piano_lh: {
-    chord @ {[$1 $2 $3]**}
-  }
+    piano_lh: {
+      chord @ {[$1 $2 $3]**}
+    }
 
-  bass: {
-    ^{a f g c} @ {$1. $1*~\}
-    {a f g ^g} @ {$1\ @ 8}
-  }
-]
+    bass: {
+      ^{a f g c} @ {$1. $1*~\}
+      {a f g ^g} @ {$1\ @ 8}
+    }
+  ]
+}

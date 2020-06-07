@@ -1,26 +1,28 @@
 // 9 measures: C -> Em -> F -> G x 4 -> C
 
-var chord = {triad1 triad3 triad4 triad2} @ 2
+def outro() {
+  var chord = {triad1 triad3 triad4 triad2} @ 2
 
-[
-  percussion: {
-    for (i, 1, 8) {
-      [
-        {bas r}\ @ 4
-        {r r snr r if (i == 8) {r snr snr snr} else {r r snr r}}\
-        {if (i == 1) { ccm } else { chh } chh ohh chh @ 5}\
-      ]
+  [
+    percussion: {
+      for (i, 1, 8) {
+        [
+          {bas r}\ @ 4
+          {r r snr r if (i == 8) {r snr snr snr} else {r r snr r}}\
+          {if (i == 1) { ccm } else { chh } chh ohh chh @ 5}\
+        ]
+      }
     }
-  }
 
-  piano_lh: {
-    chord @ {[$1 $2 $3]. $2\ $3\ $2\ $1}
-    triad1 @ [$1 $2 $3]*** | Arp()
-  }
+    piano_lh: {
+      chord @ {[$1 $2 $3]. $2\ $3\ $2\ $1}
+      triad1 @ [$1 $2 $3]*** | Arp()
+    }
 
-  bass: {
-    {^c e f g} | AddNotes(n+=12) @ {^{$1 $2} @ 4}\
-    ^c** e** f** g**
-    ^c***
-  }
-]
+    bass: {
+      {^c e f g} | AddNotes(n+=12) @ {^{$1 $2} @ 4}\
+      ^c** e** f** g**
+      ^c***
+    }
+  ]
+}
