@@ -12,6 +12,16 @@ def bmelo() {
         [
           {bas r}\ @ 4
           chh\ @ 8
+          if (i >= 5) {
+            {
+              r r snr r
+              if (i == 8) {
+                r snr snr snr
+              } else {
+                r r snr r
+              }
+            }\
+          }
         ]
       }
     }
