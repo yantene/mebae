@@ -1,4 +1,4 @@
-// 16 measures: C -> G -> Am -> Em -> F -> C -> F -> G
+// 16 measures: C -> G -> Am -> Em -> F -> C -> F -> G x 2
 
 def sabi(ochisabi = false, lastsabi = false) {
   var tkey = 0
@@ -9,7 +9,7 @@ def sabi(ochisabi = false, lastsabi = false) {
   var chord = {
     triad1 triad5 triad6 triad3
     triad4 triad1 triad4 triad5
-  }
+  } @ 2
 
   [
     percussion: {
