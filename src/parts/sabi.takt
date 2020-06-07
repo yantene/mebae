@@ -1,8 +1,6 @@
-// C -> G -> Am -> Em -> F -> C -> F -> G
+// 16 measures: C -> G -> Am -> Em -> F -> C -> F -> G
 
 sabi_c += 1
-
-printf("%d\n", sabi_c)
 
 var chord = {
   triad1 triad5 triad6 triad3
@@ -10,6 +8,16 @@ var chord = {
 }
 
 [
+  percussion: {
+    for (i, 1, 16) {
+      [
+        {bas r}\ @ 4
+        {{r r snr r}\ if (i == 16) {{snr @ 3 r}\\ @ 2} else {{r r snr r}\}}
+        if (sabi_c != 3) { chh\ @ 8 }
+      ]
+    }
+  }
+
   vocal: {
     c c c d e* e a
     g* e d e**
@@ -18,22 +26,6 @@ var chord = {
     r** r*~~\ g\
     a*~~\ e\\ d\\ c**
   }
-
-  percussion: {
-    [
-      {
-        [
-          {c2 r}\ @ 4     // bass drum
-          {r r d2 r}\ @ 2 // snare
-          f#2\ @ 8        // closed hi-hat
-          if (sabi_c != 3) {
-            // not ochi-sabi
-            r\ @ 7 c#3\     // cymbal
-          }
-        ] @ 8
-      }
-    ]
-  } @ 2
 
   piano_lh: {
     chord @ {[$1 $2 $3]. $2\ $3\ $2\ $1}
@@ -44,13 +36,13 @@ var chord = {
   } @ 2
 
   bass: {
-    var chord = {^c g a e f ^c f g}
-
-    if (sabi_c == 3) {
-      // ochi-sabi
-      chord @ {c**}
-    } else {
-      chord | AddNotes(n+=12) @ {^{$1 $2} @ 4}\
+    for (i, 0, 1) {
+      if (sabi_c == 3 && i == 0) {
+        // ochi-sabi first half
+        {^c g a e f ^c f g} @ {c**}
+      } else {
+        {^c g a e f ^c f g} | AddNotes(n+=12) @ {^{$1 $2} @ 4}\
+      }
     }
-  } @ 2
+  }
 ]

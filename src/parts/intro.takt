@@ -1,27 +1,16 @@
-// C -> Em -> F -> G -> C -> Em -> F -> G
+// 8 measures: C -> Em -> F -> G x 4
 
-var chord = {
-  triad1 triad3 triad4 triad2
-  triad1 triad3 triad4 triad2
-}
+var chord = {triad1 triad3 triad4 triad2} @ 2
 
 [
   percussion: {
-    [
-      {
-        [
-          {c2 r}\ @ 4     // bass drum
-          {r r d2 r}\ @ 2 // snare
-          f#2\ @ 8        // closed hi-hat
-        ] @ 4
-        [
-          {c2 r}\ @ 4     // bass drum
-          {r r d2 r}\ @ 2 // snare
-          f#2\ @ 8        // closed hi-hat
-          r\ @ 7 c#3\     // cymbal
-        ] @ 4
-      }
-    ]
+    for (i, 1, 8) {
+      [
+        {bas r}\ @ 4
+        {r r snr r if (i == 8) {r snr snr snr} else {r r snr r}}\
+        {if (i == 5) { ccm } else { chh } chh ohh chh @ 5}\
+      ]
+    }
   }
 
   piano_lh: {
