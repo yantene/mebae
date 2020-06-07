@@ -1,4 +1,4 @@
-// 8 measures: C -> Em -> F -> G x 4 -> C
+// 9 measures: C -> Em -> F -> G x 4 -> C
 
 var chord = {triad1 triad3 triad4 triad2} @ 2
 
