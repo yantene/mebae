@@ -1,0 +1,8 @@
+name: 'Takt'
+description: 'Generate midi and audio files from takt'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+branding:
+  color: blue
+  icon: music

@@ -1,0 +1,65 @@
+name: generate audio files and release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Generate audio files
+        id: generate-audio-files
+        uses: ./
+      - name: Create release
+        id: create-release
+        uses: actions/create-release@v1.1.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+      - name: Upload midi file
+        id: upload-midi-file
+        uses: actions/upload-release-asset@v1.0.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create-release.outputs.upload_url }}
+          asset_path: ./dist/song.mid
+          asset_name: song.mid
+          asset_content_type: audio/midi
+      - name: Upload flac file
+        id: upload-flac-file
+        uses: actions/upload-release-asset@v1.0.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create-release.outputs.upload_url }}
+          asset_path: ./dist/song.flac
+          asset_name: song.flac
+          asset_content_type: audio/flac
+      - name: Upload opus file
+        id: upload-opus-file
+        uses: actions/upload-release-asset@v1.0.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create-release.outputs.upload_url }}
+          asset_path: ./dist/song.opus
+          asset_name: song.opus
+          asset_content_type: audio/opus
+      - name: Upload mp3 file
+        id: upload-mp3-file
+        uses: actions/upload-release-asset@v1.0.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create-release.outputs.upload_url }}
+          asset_path: ./dist/song.mp3
+          asset_name: song.mp3
+          asset_content_type: audio/mpeg
